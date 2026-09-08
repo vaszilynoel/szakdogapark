@@ -2,20 +2,10 @@ import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import './App.css';
 import parkingData from './parkingdata.json'; // The detailed spots
 import budapestParking from './budapest_parking.json'; // The large district zones
+import { getBudapestZoneStyle } from './zoneStyles';
 
 function App() {
     const position = [47.4979, 19.0402];
-
-    // Style for the large background zones (A, B, C, D)
-    const getBudapestZoneStyle = (feature) => {
-        const zoneId = feature.properties.zoneid;
-        switch (zoneId) {
-            case '1101': return { color: '#e67e22', weight: 1, fillOpacity: 0.1, interactive: false }; // Zone A
-            case '1102': return { color: '#9b59b6', weight: 1, fillOpacity: 0.1, interactive: false }; // Zone B
-            case '1103': return { color: '#f1948a', weight: 1, fillOpacity: 0.1, interactive: false }; // Zone C
-            default: return { color: '#f1c40f', weight: 1, fillOpacity: 0.1, interactive: true };     // Zone D
-        }
-    };
 
     return (
         <div id="map-wrapper" style={{ height: '100vh', width: '100vw' }}>
@@ -29,6 +19,9 @@ function App() {
                 <GeoJSON
                     data={budapestParking}
                     style={getBudapestZoneStyle}
+
+
+                    onEachFeature={(Feature, layer) => layer.bindPopup(`<strong>Zone ID</strong><br/>Code: ${Feature.properties.zoneid}`)}
                 />
 
                 {/* 2. FREE PARKING SPOTS ONLY */}
@@ -48,8 +41,9 @@ function App() {
                         fillColor: '#3498db'
                     }}
                     onEachFeature={(feature, layer) => {
-                        layer.bindPopup(`<strong>Free Parking</strong><br/>Type: ${feature.properties.parking || 'Spot'}`);
+                        layer.bindPopup(`<strong>Free Paffrking</strong><br/>Type: ${feature.properties.parking || 'Spot'}`);
                     }}
+
                 />
             </MapContainer>
         </div>

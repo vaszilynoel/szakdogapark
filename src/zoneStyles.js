@@ -1,0 +1,54 @@
+export const getBudapestZoneStyle = (feature) => {
+    const zoneId = feature.properties.zoneid;
+
+    switch (zoneId) {
+        case '0101': return { color: '#000000', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0102': return { color: '#000000', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0133': return { color: '#000000', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0135': return { color: '#b22222', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0138': return { color: '#ff8c00', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0201': return { color: '#e6194B', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0202': return { color: '#f58231', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0203': return { color: '#191818', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0301': return { color: '#bfef45', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0302': return { color: '#3cb44b', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0304': return { color: '#42d4f4', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0501': return { color: '#7900ff', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0901': return { color: '#32cd32', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0904': return { color: '#00ced1', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0906': return { color: '#1e90ff', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0907': return { color: '#8a2be2', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '0908': return { color: '#20b2aa', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '1140': return { color: '#ff1493', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '1142': return { color: '#ff69b4', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '1143': return { color: '#cd5c5c', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3011': return { color: '#674534', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3012': return { color: '#000000', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3016': return { color: '#ec0606', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3061': return { color: '#4682b4', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3062': return { color: '#d2691e', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3071': return { color: '#556b2f', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3072': return { color: '#8b4513', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3073': return { color: '#708090', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3080': return { color: '#9932cc', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3081': return { color: '#8fbc8f', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3082': return { color: '#db7093', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3083': return { color: '#00fa9a', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3084': return { color: '#40e0d0', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3085': return { color: '#2e8b57', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3086': return { color: '#dda0dd', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3087': return { color: '#f08080', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3088': return { color: '#ba55d3', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3111': return { color: '#4363d8', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3112': return { color: '#911eb4', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3113': return { color: '#f032e6', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3114': return { color: '#a9a9a9', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3115': return { color: '#fabed4', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3116': return { color: '#ffd8b1', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3117': return { color: '#fffac8', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3118': return { color: '#aaffc3', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3121': return { color: '#469990', weight: 3, fillOpacity: 0.3, interactive: true };
+        case '3123': return { color: '#000075', weight: 3, fillOpacity: 0.3, interactive: true };
+        default: return { color: '#f1c40f', weight: 3, fillOpacity: 0.3, interactive: true };
+    }
+};
