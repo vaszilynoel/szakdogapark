@@ -10,6 +10,9 @@ function App() {
 
     const [isSlideOutOpen,setIsSlideOutOpen]= useState(false)
 
+    const [currentZone,setCurrentZone]=useState(null)
+
+
     function toggleSideBar(){
         setIsSlideOutOpen(!isSlideOutOpen)
     }
@@ -26,7 +29,7 @@ function App() {
                 />
 
                 {/* 1. Large Budapest Background Zones */}
-                <BudapestZones/>
+                <BudapestZones onZoneClick={setCurrentZone}/>
                 {/* 2. FREE PARKING SPOTS ONLY */}
                 <FreeParkingSpots/>
 
