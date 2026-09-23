@@ -10,8 +10,9 @@ function App() {
 
     const [isSlideOutOpen,setIsSlideOutOpen]= useState(false)
 
-    const [currentBudapestZone,setCurrentBudapestZone]=useState(null)
-    const [currentFreeZone,setCurrentFreeZone]=useState(null)
+    const [currentBudapestZone,setCurrentBudapestZone]=useState(/** @type {any} */(null))
+
+    const [currentFreeZone,setCurrentFreeZone]=useState(/** @type {any} */(null))
 
     function toggleSideBar(){
         setIsSlideOutOpen(!isSlideOutOpen)
@@ -29,22 +30,16 @@ function App() {
     }
 
     function priceRange(){
-        let priceRanged= "";
         switch (currentBudapestZone.fee) {
         case 300:
-            priceRanged="Low";
-            break; // The 'break' stops it from accidentally running the next case
+            return "Low";
         case 450:
-            priceRanged="Medium";
-            break;
+            return "Medium";
         case 600:
-            priceRanged="High";
-            break;
+            return "High";
         default:
-            priceRanged=""
-            break;
+            return "Unknown"
         }
-        return priceRanged;
     }
 
 
