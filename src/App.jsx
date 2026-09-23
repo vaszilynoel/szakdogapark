@@ -3,7 +3,7 @@ import './App.css';
 import BudapestZones from "./BudapestZones.jsx";
 import FreeParkingSpots from "./FreeParkingSpots.jsx";
 import {useState} from "react";
-
+import Stopwatch from "./Stopwatch.jsx";
 
 function App() {
     const position = [47.4979, 19.0402]; // budapest start location
@@ -83,6 +83,8 @@ function App() {
                 {!currentBudapestZone && !currentFreeZone && (
                     <h3>Start by picking a zone!</h3>
                 )}
+
+                <Stopwatch/>
             </div>
         </div>
     );
