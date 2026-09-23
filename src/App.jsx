@@ -39,8 +39,14 @@ function App() {
 
             <div className={`slide-out-menu ${isSlideOutOpen ? "open" : ""}`}>
                 <h1>Welcome!</h1>
-
-
+                {currentZone ? (
+                    <div className={"current-zone-info"}>
+                        <p><strong>Zone Code:</strong> {currentZone.zoneid}</p>
+                        <p><strong>Fee:</strong> {currentZone.fee ? `${currentZone.fee} HUF`: "Unknown"}</p>
+                    </div>
+                    ):
+                        (<p>Select a zone</p>)
+                }
             </div>
         </div>
     );
