@@ -10,11 +10,23 @@ function App() {
 
     const [isSlideOutOpen,setIsSlideOutOpen]= useState(false)
 
-    const [currentZone,setCurrentZone]=useState(null)
-
+    const [currentBudapestZone,setCurrentBudapestZone]=useState(null)
+    const [currentFreeZone,setCurrentFreeZone]=useState(null)
 
     function toggleSideBar(){
         setIsSlideOutOpen(!isSlideOutOpen)
+    }
+
+    function handleBudapestClick(zoneData){
+        setCurrentBudapestZone(zoneData)
+        setCurrentFreeZone(null)
+        setIsSlideOutOpen(true)
+    }
+
+    function handleFreeClick(zoneData){
+        setCurrentFreeZone(zoneData)
+        setCurrentBudapestZone(null)
+        setIsSlideOutOpen(true)
     }
 
 
@@ -29,9 +41,9 @@ function App() {
                 />
 
                 {/* 1. Large Budapest Background Zones */}
-                <BudapestZones onZoneClick={setCurrentZone}/>
+                <BudapestZones onZoneClick={handleBudapestClick}/>
                 {/* 2. FREE PARKING SPOTS ONLY */}
-                <FreeParkingSpots/>
+                <FreeParkingSpots onFreeZoneClick={handleFreeClick}/>
 
             </MapContainer>
             {/* 3. button for sliding out */}
@@ -39,14 +51,25 @@ function App() {
 
             <div className={`slide-out-menu ${isSlideOutOpen ? "open" : ""}`}>
                 <h1>Welcome!</h1>
-                {currentZone ? (
-                    <div className={"current-zone-info"}>
-                        <p><strong>Zone Code:</strong> {currentZone.zoneid}</p>
-                        <p><strong>Fee:</strong> {currentZone.fee ? `${currentZone.fee} HUF`: "Unknown"}</p>
+                <h2>Parking Info:</h2>
+                {currentBudapestZone && (
+                    <div className={"current-budapest-zone-info"}>
+                        <p><strong>Zone Code:</strong> {currentBudapestZone.zoneid}</p>
+                        <p><strong>Fee:</strong> {currentBudapestZone.fee ? `${currentBudapestZone.fee} HUF`: "Unknown"}  </p>
                     </div>
-                    ):
-                        (<p>Select a zone</p>)
+                )
                 }
+                {currentFreeZone && (
+                        <div className={"current-free-zone-info"}>
+                            <h1>Free Parking</h1>
+                            <p><strong>Parking type:</strong> {currentFreeZone.parking}</p>
+                            <p><strong>Total capacity:</strong> {currentFreeZone.capacity ? `${currentFreeZone.capacity} spots` : "Unknown"}</p>
+                        </div>
+                    )
+                }
+                {!currentBudapestZone && !currentFreeZone && (
+                    <h3>Start by picking a zone!</h3>
+                )}
             </div>
         </div>
     );

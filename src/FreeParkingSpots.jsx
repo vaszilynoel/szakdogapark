@@ -1,7 +1,7 @@
 import {GeoJSON} from "react-leaflet";
 import parkingData from "./parkingdata.json";
 
-export default function FreeParkingSpots() {
+export default function FreeParkingSpots({onFreeZoneClick}) {
     return(<GeoJSON
         data={parkingData}
         // FILTER: Only show features where fee is 0, "no", "free", or missing
@@ -19,7 +19,13 @@ export default function FreeParkingSpots() {
         }}
         onEachFeature={(feature, layer) => {
             layer.bindPopup(`<strong>Free Parking</strong><br/>Type: ${feature.properties.parking || 'spot'} <br/> Zone: ${feature.properties.zone || 'unknown zone'}`);
-        }}
+            layer.on("click", ()=>{
+                onFreeZoneClick(feature.properties)
+            })
+
+        }
+
+        }
 
     />);
 }
