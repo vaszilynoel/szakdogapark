@@ -22,13 +22,30 @@ function App() {
         setCurrentFreeZone(null)
         setIsSlideOutOpen(true)
     }
-
     function handleFreeClick(zoneData){
         setCurrentFreeZone(zoneData)
         setCurrentBudapestZone(null)
         setIsSlideOutOpen(true)
     }
 
+    function priceRange(){
+        let priceRanged= "";
+        switch (currentBudapestZone.fee) {
+        case 300:
+            priceRanged="Low";
+            break; // The 'break' stops it from accidentally running the next case
+        case 450:
+            priceRanged="Medium";
+            break;
+        case 600:
+            priceRanged="High";
+            break;
+        default:
+            priceRanged=""
+            break;
+        }
+        return priceRanged;
+    }
 
 
 
@@ -54,8 +71,9 @@ function App() {
                 <h2>Parking Info:</h2>
                 {currentBudapestZone && (
                     <div className={"current-budapest-zone-info"}>
-                        <p><strong>Zone Code:</strong> {currentBudapestZone.zoneid}</p>
-                        <p><strong>Fee:</strong> {currentBudapestZone.fee ? `${currentBudapestZone.fee} HUF`: "Unknown"}  </p>
+                        <p><strong>Zone code:</strong> {currentBudapestZone.zoneid}</p>
+                        <p><strong>Cost range:</strong> {priceRange()}</p>
+                        <p><strong>Fee:</strong> {currentBudapestZone.fee ? `${currentBudapestZone.fee} HUF`: "Unknown"} </p>
                     </div>
                 )
                 }
